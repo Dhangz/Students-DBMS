@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% load static %} {% block body %}
+
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <a href="{% url 'add-department' %}"
+        ><button type="button" class="btn btn-info mb-3">
+          Add Departments
+        </button></a
+      >
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Departments</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for department in department_list %}
+          <tr>
+            <td>{{ department.id }}</td>
+            <td>{{ department.department_name }}</td>
+            <td>
+              <a href="{% url 'edit-department' pk=department.id %}"
+                ><button type="button" class="btn btn-primary">Edit</button></a
+              >
+              <a href="{% url 'delete-department' pk=department.id %}"
+                ><button type="button" class="btn btn-danger">Delete</button></a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
