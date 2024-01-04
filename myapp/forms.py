@@ -2,11 +2,13 @@ from django import forms
 from django.forms import ModelForm
 from .models import Department, Student, Course, Enrollment, Contact
 
-
-class DepartmentForm(ModelForm):
-  class Meta:
-    model = Department
-    fields = "__all__"
+class DepartmentForm(forms.ModelForm):
+    class Meta:
+        model = Department
+        fields = ['name']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control'}),
+        }
 
 class StudentForm(ModelForm):
   class Meta:
@@ -14,7 +16,10 @@ class StudentForm(ModelForm):
     fields = ('first_name', 'last_name', 'birth_date', 'department')
 
     widgets = {
-            'birth_date': forms.DateInput(attrs={'type': 'date'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'birth_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
+            'department': forms.Select(attrs={'class': 'form-control'}),
         }
     
 class CourseForm(ModelForm):
@@ -22,16 +27,30 @@ class CourseForm(ModelForm):
     model = Course
     fields = "__all__"
 
+    widgets = {
+      'name': forms.TextInput(attrs={'class': 'form-control'}),
+      'department': forms.Select(attrs={'class': 'form-control'}),
+    }
+
 class EnrollmentForm(ModelForm):
   class Meta:
     model = Enrollment
     fields = ('student', 'course', 'enrollment_date')
 
     widgets = {
-            'enrollment_date': forms.DateInput(attrs={'type': 'date'}),
+            'student': forms.Select(attrs={'class': 'form-control'}),
+            'course': forms.Select(attrs={'class': 'form-control'}),  # Fix the typo here
+            'enrollment_date': forms.DateInput(attrs={'type': 'date', 'class': 'form-control'}),
         }
     
 class ContactForm(ModelForm):
   class Meta:
     model = Contact
     fields = "__all__"
+
+
+    widgets = {
+            'student': forms.Select(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),  # Fix the typo here
+            'phone_number': forms.TextInput(attrs={'type': 'date', 'class': 'form-control'}),
+        }

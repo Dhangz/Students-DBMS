@@ -2,9 +2,9 @@
 
 <div class="container mt-4">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-16">
       <a href="{% url 'add-student'%}"
-        ><button type="button" class="btn btn-info mb-3">
+        ><button type="button" class="btn btn-primary mb-3">
           Add Students
         </button></a
       >
@@ -29,7 +29,7 @@
             <td>{{ student.department }}</td>
             <td>
               <a href="{% url 'edit-student' pk=student.id %}"
-                ><button type="button" class="btn btn-primary">Edit</button></a
+                ><button type="button" class="btn btn-warning">Edit</button></a
               >
               <a href="{% url 'delete-student' pk=student.id %}"
                 ><button type="button" class="btn btn-danger">Delete</button></a

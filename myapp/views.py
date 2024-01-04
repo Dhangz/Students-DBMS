@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Department, Student, Course, Enrollment, Contact
 from .forms import DepartmentForm, StudentForm, CourseForm, EnrollmentForm, ContactForm
 
@@ -16,7 +16,7 @@ def add_department(request):
   form = DepartmentForm()
 
   if request.method == "POST":
-    form = DepartmentForm(request.POST)
+    form = DepartmentForm(request.POST, instance='deparment')
     if form.is_valid():
       form.save()
       return redirect('department')
@@ -42,7 +42,7 @@ def edit_department(request, pk):
   return render(request, 'edit_department.html', context)
 
 def delete_department(request, pk):
-	item = Department.objects.get(id=pk)
+	item = get_object_or_404(Department, id=pk)
 
 	if request.method == 'POST':
 		item.delete()
@@ -59,7 +59,6 @@ def students(request):
   return render(request, 'students.html', context)
 
 def add_student(request):
-  students = Student.objects.all()
 
   form = StudentForm()
 

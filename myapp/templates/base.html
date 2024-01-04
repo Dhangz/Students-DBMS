@@ -14,47 +14,32 @@
   <body>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+    <nav class="navbar sticky-top navbar-expand-lg bg-dark mb-5">
       <div class="container">
-        <!-- Brand/Logo -->
-        <a class="navbar-brand" href="https://github.com/Dhangz"><img src="https://avatars.githubusercontent.com/u/141886574?v=4" width='50'  alt="profile" style="border-radius: 100%;"></a>
-
-        <!-- Toggle button for small screens -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Navigation Links -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
+        <a class="navbar-brand" href="#"><img src="https://avatars.githubusercontent.com/u/141886574?v=4" style='border-radius: 100%;' width='50' alt="Profile Pictures"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <i class="fas fa-bars"></i>
+    </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto w-100 justify-content-end">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url "index" %}"
-                >Home</a
-              >
+              <a class="nav-link" href="{% url "index" %}">Home</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url "department" %}">Department</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url "students" %}">Students</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url "course" %}">Courses</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url "enrollment" %}">Enrollment</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url "contact" %}">Contacts</a>
-            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url "students" %}">Student</a>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url "course" %}">Courses</a>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url "enrollment" %}">Enrollment</a>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url "contact" %}">Contact</a>
+                  </li>
+
           </ul>
         </div>
       </div>

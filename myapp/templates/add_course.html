@@ -1,17 +1,17 @@
 {% extends "base.html" %} {% block body %}
 
-<center>
-  <h2>Add Course</h2>
+<div class='container'>
+  <h2 class='text-primary'>Add Course</h2>
   <br />
 
   <form action="" method="POST">
     {% csrf_token %} {{ form.as_p}}
 
-    <input type="submit" value="Submit" class="btn btn-primary" />
+    <input type="submit" value="Submit" class="btn btn-primary mt-3" />
     <a href="{% url 'course' %}"
-      ><button type="button" class="btn btn-warning">Home</button></a
+      ><button type="button" class="btn btn-warning mt-3">Cancel</button></a
     >
   </form>
-</center>
+</div>
 
 {% endblock %}

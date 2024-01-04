@@ -2,10 +2,10 @@ from django.db import models
 
 # Create your models here.
 class Department(models.Model):
-    department_name = models.CharField(max_length=50, null=True)
+    name = models.CharField(max_length=50, null=True)
 
     def __str__(self):
-        return self.department_name
+        return self.name
 
 class Student(models.Model):
     first_name = models.CharField(max_length=50)
@@ -14,7 +14,7 @@ class Student(models.Model):
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.id)
+        return self.first_name + ' ' + self.last_name
 
 
 class Course(models.Model):
