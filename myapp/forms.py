@@ -52,5 +52,5 @@ class ContactForm(ModelForm):
     widgets = {
             'student': forms.Select(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),  # Fix the typo here
-            'phone_number': forms.TextInput(attrs={'type': 'date', 'class': 'form-control'}),
+            'phone_number': forms.TextInput(attrs={'class': 'form-control'}),
         }
