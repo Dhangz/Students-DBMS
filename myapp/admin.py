@@ -5,10 +5,12 @@ from .models import *
 @admin.register(Department)
 class DepartmentAdmin(admin.ModelAdmin):
     list_display = ["name"]
+    
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ["id", "first_name", "last_name", "birth_date", "department"]
+    list_display = ["first_name", "last_name", "birth_date", "department"]
+    search_fields = ('first_name', 'last_name')
 
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
