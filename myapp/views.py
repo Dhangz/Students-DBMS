@@ -7,7 +7,7 @@ def index(request):
   return render(request, 'index.html')
 
 def department(request):
-  department_list = Department.objects.all()
+  department_list = Department.objects.all().order_by('name',)
   return render(request, 'department.html', {'department_list': department_list})
 
 def add_department(request):
