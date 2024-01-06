@@ -6,17 +6,31 @@ from .forms import DepartmentForm, StudentForm, CourseForm, EnrollmentForm, Cont
 def index(request):
   return render(request, 'index.html')
 
+
+# def search(request):
+#   if request.method == 'POST':
+#      searched = request.POST['searched']
+#      departments = Department.objects.filter(name__contains=searched)
+
+#      context = {'searched': searched, 'departments': departments}
+
+#      return render(request, 'search.html', context)
+#   else:
+     
+#     return render(request, 'search.html', {})
+
 def department(request):
   department_list = Department.objects.all().order_by('name',)
-  return render(request, 'department.html', {'department_list': department_list})
+
+  context = {'department_list': department_list}
+  return render(request, 'department.html', context)
 
 def add_department(request):
-  department = Department.objects.all()
 
   form = DepartmentForm()
 
   if request.method == "POST":
-    form = DepartmentForm(request.POST, instance='deparment')
+    form = DepartmentForm(request.POST)
     if form.is_valid():
       form.save()
       return redirect('department')
@@ -52,6 +66,14 @@ def delete_department(request, pk):
 	return render(request, 'delete_department.html', context)
 
 def students(request):
+  if request.method == 'POST':
+     searched = request.POST['searched']
+     student_list = Student.objects.filter(first_name__contains=searched)
+
+     context = {'searched': searched, 'student_list': student_list}
+
+     return render(request, 'students.html', context)
+
   student_list = Student.objects.all()
 
   context = {'student_list': student_list}

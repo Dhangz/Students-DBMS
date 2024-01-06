@@ -25,13 +25,13 @@
   <body>
     <nav class="navbar sticky-top navbar-expand-lg bg-dark mb-5">
       <div class="container">
-        <a class="navbar-brand" href="#"><img  src="https://avatars.githubusercontent.com/u/141886574?v=4" style='border-radius: 100%;' width='50' alt="Profile Pictures"></a>
+        <a class="navbar-brand" href="https://github.com/Dhangz"><img  src="https://avatars.githubusercontent.com/u/141886574?v=4" style='border-radius: 100%;' width='50' alt="Profile Pictures"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
      <i class="fas fa-bars"></i>
     </button>
   
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto w-100 justify-content-end">
+          <ul class="navbar-nav mr-auto w-100 justify-content-center">
             <li class="nav-item active">
               <a class="nav-link text-light" href="{% url "index" %}">Home</span></a>
             </li>
@@ -50,6 +50,12 @@
           </ul>
         </div>
       </div>
+
+      <form class="d-flex col-md-4" method="POST" action="{% url 'students' %}">
+        {%  csrf_token %}
+        <input class="form-control me-2" type="search" name="searched" placeholder="Search for Students" aria-label="Search">
+        <button class="btn btn-outline-secondary me-4"  type="submit">Search</button>
+      </form>
     </nav>
 
     <nav class="navbar fixed-bottom bg-dark">

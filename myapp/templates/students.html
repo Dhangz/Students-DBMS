@@ -10,6 +10,11 @@
             </span>
         </button></a
       >
+
+      {% if searched %}
+
+        <h2>You search for "{{ searched }}"</h2> <br>
+      {% endif %}
       <table class="table table-hover">
         <thead>
           <tr>
